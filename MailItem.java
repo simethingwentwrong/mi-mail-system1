@@ -11,6 +11,7 @@ public class MailItem
     private String from;
     private String to;
     private String message;
+    private String subject;
     /**
      * Constructor for objects of class MailItem
      */
@@ -20,6 +21,7 @@ public class MailItem
         this.from = from;
         this.to = to;
         this.message = message;
+        this.subject = subject;
     }
 
     /**
@@ -48,6 +50,14 @@ public class MailItem
         // return message
         return message;
     }
+    /**
+     * A method get in order to subject
+     */
+    public String getSubject()
+    {
+        // return message
+        return subject;
+    }
      /**
      * A method get in order to print that show the parametres from,to and message
      */
@@ -56,6 +66,7 @@ public class MailItem
         // show the parametres
         System.out.println ( "From " + from);
         System.out.println ( "To " + to);
-        System.out.println ( "Message " + from);
+        System.out.println ( "Message " + message);
+         System.out.println ( "Subject " + subject);
     }
 }
