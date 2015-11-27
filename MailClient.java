@@ -30,7 +30,15 @@ public class MailClient
         
         return server.getNextMailItem (user);
     }
-    
+    /**
+     * A method call set it.
+     * 
+     */
+    public void showMailItem()
+    {
+        
+        System.out.println( server.howManyMailItems (user));
+    }
     /**
      * A method call printtNextMailItem that recover of the server the next mail and return it.
      * 
