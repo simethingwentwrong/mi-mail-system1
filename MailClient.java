@@ -30,9 +30,10 @@ public class MailClient
         
         return server.getNextMailItem (user);
     }
+    
     /**
      * A method call printtNextMailItem that recover of the server the next mail and return it.
-     * ESTO NO LO SUPE HACER
+     * 
      */
     public MailItem printNexMailItem()
     {
@@ -45,15 +46,17 @@ public class MailClient
         {
             item.print ();
         }
+        return server.getNextMailItem (user);
     }
+    
     /**
      * A method call sendMailItem that have two String parametres to and message, creates an email (MailItem object)
      *with those parametres and sends to served asociate with these client.
-     *FAllÉ en server.post
+     *
      */
-    public void sendMailItem (String to,String message)
+    public void sendMailItem (String to,String message, String subject)
     {
-        MailItem item = new MailItem (user,to, message);//?
-        server.post (item);
+        MailItem item = new MailItem (user,to, message, subject);
+        server.post (item); //send to server with method post
     }
 }

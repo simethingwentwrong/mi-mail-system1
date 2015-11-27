@@ -15,7 +15,7 @@ public class MailItem
     /**
      * Constructor for objects of class MailItem
      */
-    public MailItem( String from,String to, String message)
+    public MailItem( String from,String to, String message, String subject)
     {
         // initialise instance variables with the parametres from,to and message
         this.from = from;
@@ -55,7 +55,7 @@ public class MailItem
      */
     public String getSubject()
     {
-        // return message
+        // return subject
         return subject;
     }
      /**
@@ -67,6 +67,6 @@ public class MailItem
         System.out.println ( "From " + from);
         System.out.println ( "To " + to);
         System.out.println ( "Message " + message);
-         System.out.println ( "Subject " + subject);
+        System.out.println ( "Subject " + subject);
     }
 }
