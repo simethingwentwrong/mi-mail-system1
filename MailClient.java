@@ -29,9 +29,10 @@ public class MailClient
     {
         
         return server.getNextMailItem (user);
+        
     }
     /**
-     * A method call set it.
+     * A method call ShowMailItem that show the messages in the server.
      * 
      */
     public void showMailItem()
@@ -56,7 +57,26 @@ public class MailClient
         }
         return server.getNextMailItem (user);
     }
-    
+    /**
+     * A method call getNextMailItemAndAutorespond that recover of the server the next mail and return i
+     * 
+     */
+    public void getNexMailItemAndAutorespond()
+    {
+        MailItem item = server.getNextMailItem (user);
+
+        if (item == null)
+        {
+           System.out.println ("No new mail."); 
+        }
+        else
+        {   
+             MailItem  : item1;
+             server.getNextMailItem (user);
+             server.post (item1);
+        }
+         
+    }
     /**
      * A method call sendMailItem that have two String parametres to and message, creates an email (MailItem object)
      *with those parametres and sends to served asociate with these client.
