@@ -10,15 +10,16 @@ public class MailClient
     // instance variables 
     private MailServer server;//server asociated with the client
     private String user; //user server´s adress
-
+    private MailItem items;// the last message
     /**
      * Constructor for objects of class MailClient with parametres server and user
      */
     public MailClient( MailServer server, String user)
     {
-        // initialise instance variables server and user
+        // initialise instance variables server and user 
         this.server = server;
         this.user = user;
+        
     }
 
     /**
@@ -38,7 +39,7 @@ public class MailClient
     public void showMailItem()
     {
         
-        System.out.println( server.howManyMailItems (user));
+        System.out.println( "Tiene usted " + server.howManyMailItems (user) + " mensajes");
     }
     /**
      * A method call printtNextMailItem that recover of the server the next mail and return it.
@@ -57,9 +58,26 @@ public class MailClient
         }
         return server.getNextMailItem (user);
     }
-    /**
-     * A method call getNextMailItemAndAutorespond that recover of the server the next mail and return i
+      /**
+     * A method call printLastMailItem that show the last mail.
      * 
+     */
+    public void printLastMailItem()
+    {
+        MailItem item = server.getNextMailItem (user);
+        if (items == null)
+        {
+            System.out.println ("No new mail.");
+        }
+        else
+        {
+            items.print ();
+        }
+
+    }
+    /**
+     * A method call getNextMailItemAndAutorespond that recover of the server the next mail and return other different ("No estoy en la oficina"),
+     * the same message has  the prefix "Re" too.
      */
     public void getNexMailItemAndAutorespond()
     {
@@ -67,13 +85,15 @@ public class MailClient
 
         if (item == null)
         {
-           System.out.println ("No new mail."); 
+           System.out.println ("No new mail."); //si quisiera una línea sin salto de linea System.out.print();
         }
         else
         {   
-             MailItem  : item1;
-             server.getNextMailItem (user);
-             server.post (item1);
+             // \n salta a una nueva línea
+             // \t introduce un tabulador
+             
+             sendMailItem (item.getFrom(),"Re"  + item.getSubject(),"No estoy en la oficina.\n\t" + item.getMessage() );
+             
         }
          
     }
